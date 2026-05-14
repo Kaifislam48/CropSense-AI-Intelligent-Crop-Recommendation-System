@@ -41,8 +41,8 @@ router.post('/predict', (req, res) => {
     const scriptPath = path.join(__dirname, '..', 'predict.py');
     const args = [N, P, K, temperature, humidity, ph, rainfall].map(String);
 
-    const pythonProcess = spawn('python3', [scriptPath, ...args], {
-        env: { ...process.env }
+    const pythonProcess = spawn('py', [scriptPath, ...args], {
+    env: { ...process.env }
     });
 
     let stdout = '';
